@@ -1,3 +1,18 @@
 install: make get-deps
 compiler: clang
 language: c++
+dist: trusty
+addons:
+  sonarcloud:
+    organization: "valeriam07"
+    token:
+      secure: "89ab89a4823987e09f443fe9f846b23072b4346d" # encrypted value of your token
+
+script:
+  # Wraps the compilation with the Build Wrapper to generate configuration (used
+  # later by the SonarScanner) into the "bw-output" folder
+  - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
+  # And finally run the SonarCloud analysis - read the "sonar-project.properties"
+  # file to see the specific configuration
+  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
+

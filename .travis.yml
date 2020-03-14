@@ -1,21 +1,25 @@
-language: c++
-dist: trusty
-
-compiler: gcc
-
-addons:
-  sonarcloud:
-    organization: "valeriam07"
-    token:
-      secure: "bc22448ba81f31dbb2834848e5936084c440d16a" # encrypted value of your token
-
-install:
-- make get-deps
-
-script:
-  # Wraps the compilation with the Build Wrapper to generate configuration (used
-  # later by the SonarScanner) into the "bw-output" folder
-  - build-wrapper-linux-x86-64 --out-dir bw-output /home/valeria/CLion-2019.3.4/clion-2019.3.4/bin/cmake/linux/bin/cmake
-  # And finally run the SonarCloud analysis - read the "sonar-project.properties"
-  # file to see the specific configuration
-  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
+{
+  "language": "cpp",
+  "os": [
+    "linux"
+  ],
+  "dist": "trusty",
+  "compiler": [
+    "gcc"
+  ],
+  "addons": {
+    "sonarcloud": {
+      "organization": "valeriam07",
+      "token": {
+        "secure": "bc22448ba81f31dbb2834848e5936084c440d16a"
+      }
+    }
+  },
+  "install": [
+    "make get-deps"
+  ],
+  "script": [
+    "build-wrapper-linux-x86-64 --out-dir bw-output /home/valeria/CLion-2019.3.4/clion-2019.3.4/bin/cmake/linux/bin/cmake",
+    "sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output"
+  ]
+}

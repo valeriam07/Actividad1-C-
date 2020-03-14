@@ -17,7 +17,7 @@
   },
 
   "script": [
-    "build-wrapper-linux-x86-64 --out-dir bw-output /home/valeria/CLion-2019.3.4/clion-2019.3.4/bin/cmake/linux/bin/cmake",
+    "build-wrapper-linux-x86-64 --out-dir bw-output cmake",
     "sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output"
   ],
   "group": "stable"

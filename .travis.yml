@@ -10,8 +10,7 @@ addons:
       secure: "bc22448ba81f31dbb2834848e5936084c440d16a" # encrypted value of your token
 
 install:
-  - cd ${TRAVIS_BUILD_DIR}
-  - sudo make -C lcov-1.11/ install
+- make get-deps
 
 script:
   # Wraps the compilation with the Build Wrapper to generate configuration (used

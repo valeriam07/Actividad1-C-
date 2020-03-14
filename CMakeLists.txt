@@ -3,4 +3,4 @@ project(Actividad1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Actividad1 calculadora.cpp)
+add_executable(Actividad1 main.cpp)
